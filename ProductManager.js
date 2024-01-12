@@ -138,3 +138,5 @@ async function test() {
 }
 
 test();
+
+module.exports = ProductManager;

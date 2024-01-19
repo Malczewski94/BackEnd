@@ -1,0 +1,19 @@
+<main class="container">
+    <h1>Nuevo Producto</h1>
+      <form id="form-products" action="/realtimeproducts" method="post">
+        <input class="input-products" type="text" name="title" placeholder="Titulo" required>
+        <input class="input-products" type="text" name="description" placeholder="Descripción" required>
+        <input class="input-products" type="number" name="code" placeholder="Codigo" required>
+        <input class="input-products" type="text" name="price" placeholder="Precio" required>
+        <input class="input-products" type="text" name="status" placeholder="Estatus" value="true" readonly>
+        <input class="input-products" type="number" name="stock" placeholder="Existencias" required>
+        <input class="input-products" type="text" name="category" placeholder="Categoria" required>
+        <input class="input-products" type="text" name="thumbnails[]" placeholder="Imagen">
+        <input class="input-products" type="submit" value="Enviar">
+      </form>
+  <h1>Lista de Productos</h1>
+    <ul id="list-products">
+    </ul>
+</main>
+<script src="C:\Users\Tommy\Desktop\Desafios-main\src\socket.js"></script>
+<script src="C:\Users\Tommy\Desktop\Desafios-main\public\js\index.js"></script>

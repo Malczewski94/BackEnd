@@ -53,6 +53,8 @@ formDelete.addEventListener('submit', (e) => {
         idPdt,
     });
 });
+
+
 // Codigo Viejo
 
 // socket.on('allProducts', (data) =>{

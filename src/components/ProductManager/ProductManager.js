@@ -8,8 +8,8 @@ class ProductManager {
     }
 
     async addProduct(data) {
-        const { title, description, price, thumbnail, code, stock } = data;
-        if ( !title || !description || !price || !thumbnail || !code || !stock ) {
+        const { title, description, price, code, stock } = data;
+        if ( !title || !description || !price || !code || !stock ) {
             console.error('Es necesario completar todos los campos.')
         }
 
@@ -32,7 +32,6 @@ class ProductManager {
             title,
             description,
             price,
-            thumbnail,
             code,
             stock,
         };
@@ -89,7 +88,7 @@ class ProductManager {
 
     async deleteProductById(id) {
         const products = await getJsonFromFile(this.path);
-        const indexToDelete = products.findIndex((product) => product.id === id);
+        const indexToDelete = products.findIndex((product) => parseInt(product.id) === parseInt(id));
     
         if (indexToDelete === -1) {
           console.error('No se encontró el producto a eliminar.');
@@ -100,6 +99,7 @@ class ProductManager {
         await saveJsonInFile(this.path, products);
         console.log('El producto se ha eliminado correctamente.');
       }
+    
 }
 
 const getJsonFromFile = async (path) => {

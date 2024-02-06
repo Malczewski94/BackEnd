@@ -66,18 +66,27 @@
 		"id": 8,
 		"title": "Producto 8",
 		"description": "Descripcion",
-		"price": 40000,
+		"price": 4000,
 		"thumbnail": "Imagen del producto",
-		"code": 6575,
-		"stock": 5
+		"code": 99999,
+		"stock": 30
+	},
+	{
+		"id": 9,
+		"title": "Producto 7",
+		"description": "Descripcion",
+		"price": 1000,
+		"thumbnail": "Imagen del producto",
+		"code": 10000,
+		"stock": 30
 	},
 	{
 		"id": 10,
 		"title": "Producto 10",
 		"description": "Descripcion",
-		"price": 87500,
+		"price": 4000,
 		"thumbnail": "Imagen del producto",
-		"code": 8343,
-		"stock": 15
+		"code": 438456,
+		"stock": 30
 	}
 ]

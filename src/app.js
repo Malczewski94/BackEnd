@@ -5,6 +5,8 @@ const handlebars = require('express-handlebars');
 const productsRouter = require('./routers/products.router');
 const indexRouter = require('./routers/index.router');
 const cartsRouter = require('./routers/carts.router'); 
+const ProductManager = require('./components/ProductManager/ProductManager.js');
+const productManager = new ProductManager('./src/Products.json');
 const http = require('http');
 const {Server} = require('socket.io');
 
@@ -47,10 +49,35 @@ io.on('connection', (socket) =>{
   console.log('Hola nuevo cliente')
   socket.emit('nuevoProducto', 'Bienvenido cliente nuevo');
   
-  socket.on('newPdt', (data) =>{
-    product.push(data)
-    socket.emit('allProducts', product)
-  }) 
+  io.sockets.emit('allProduct', products);
+
+  // socket.on('newPdt', (data) =>{
+  //   console.log(data)
+  //   product.push(data)
+  //   io.sockets.emit('allProducts', product)
+  // }) 
+
+  socket.on("newPdt", async (data) => {
+    try { 
+      const product = await productManager.addProduct(data);
+      socket.emit("allProduct", product);
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
+  socket.on("delPdt", async (idObject) => {
+    const id = idObject.idPdt;
+    console.log(id)
+    try { 
+      const product = await productManager.deleteProductById(id);
+      socket.emit("allProducts", product);
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
+
 })
 
 server.listen(port, () => {

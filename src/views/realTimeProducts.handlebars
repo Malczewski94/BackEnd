@@ -1,16 +1,27 @@
 <main class="container">
-    <h1>Nuevo Producto</h1>
-      <form id="form-products" action="/realtimeproducts" method="post">
-        <input class="input-products" type="text" name="title" placeholder="Titulo" required>
-        <input class="input-products" type="text" name="description" placeholder="Descripción" required>
-        <input class="input-products" type="number" name="code" placeholder="Codigo" required>
-        <input class="input-products" type="text" name="price" placeholder="Precio" required>
-        <input class="input-products" type="text" name="status" placeholder="Estatus" value="true" readonly>
-        <input class="input-products" type="number" name="stock" placeholder="Existencias" required>
-        <input class="input-products" type="text" name="category" placeholder="Categoria" required>
-        <input class="input-products" type="text" name="thumbnails[]" placeholder="Imagen">
-        <input class="input-products" type="submit" value="Enviar">
-      </form>
+  <div>
+    <div>
+      <h2>Nuevo Producto</h2>
+        <form id="formAddProducts" action="/realtimeproducts" method="post">
+          <input id="title" type="text" name="title" placeholder="Titulo" required>
+          <input id="description" type="text" name="description" placeholder="Descripción" required>
+          <input id="code" type="number" name="code" placeholder="Codigo" required>
+          <input id="price" type="text" name="price" placeholder="Precio" required>
+          {{!-- <input id="status" type="text" name="status" placeholder="Estatus" value="true" readonly> --}}
+          <input id="stock" type="number" name="stock" placeholder="Existencias" required>
+          {{!-- <input id="category" type="text" name="category" placeholder="Categoria" required> --}}
+          {{!-- <input id="thumbnails" type="text" name="thumbnails[]" placeholder="Imagen"> --}}
+          <input id="submitt" type="submit" value="Enviar">
+        </form>
+    </div>
+    <div>
+      <h2>Eliminar Producto</h2>
+        <form id="formDelete">
+          <input type="text" name="id" placeholder="ID del producto" id="deleteId" />
+          <button type="submit">Enviar</button>
+        </form>
+    </div>
+  </div>
   <h1>Lista de Productos</h1>
     <ul id="list-products">
     </ul>

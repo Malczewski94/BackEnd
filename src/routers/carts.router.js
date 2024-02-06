@@ -5,9 +5,9 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
 const CartManager = require('../components/CartManager/CartsManager');
-const cartManager = new CartManager('./Carts.json');
+const cartManager = new CartManager('./src/Carts.json');
 const ProductManager = require('../components/ProductManager/ProductManager');
-const productManager = new ProductManager('./Products.json');
+const productManager = new ProductManager('./src/Products.json');
 
 router.post('/carts', async (req, res) => {
     const { body } = req;
